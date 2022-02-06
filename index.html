@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js" async></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Tip Calculator App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.svg" alt="">
+        </div>
+        <main>
+            <div class="calculator__box">
+                <article>
+                    <h3>Bill</h3>
+                    <div class="input__container">
+                        <img id="dollar" src="images/icon-dollar.svg" alt="">
+                        <input type="number" placeholder="0">
+                    </div>
+                </article>
+                <section>
+                    <h3>
+                        Select Tip %
+                    </h3>
+                    <div class="tip__container">
+                        <div class="checkbox__container">
+                            <input class="checkbox" type="checkbox" id="five" name="five" value="5%">
+                            <label for="five">5%</label>
+                        </div>
+                        <div class="checkbox__container">
+                            <input class="checkbox" type="checkbox" id="ten" name="ten" value="10%">
+                            <label for="ten">10%</label>
+                        </div>
+                        <div class="checkbox__container">
+                            <input class="checkbox" type="checkbox" id="fifteen" name="fifteen" value="5%">
+                            <label for="fifteen">15%</label>
+                        </div>
+                        <div class="checkbox__container">
+                            <input class="checkbox" type="checkbox" id="twentyfive" name="twentyfive" value="25%">
+                            <label for="twentyfive">25%</label>
+                        </div>
+                        <div class="checkbox__container">
+                            <input class="checkbox" type="checkbox" id="fifty" name="fifty" value="50%">
+                            <label for="fifty">50%</label>
+                        </div>
+                        <div class="checkbox__container checkbox__container--custom unchecked">
+                            <input class="checkbox" type="checkbox" id="custom" name="custom" value="custom">
+                            <label for="custom">
+                                Custom
+                            </label>
+                        </div>
+                        <div class="checkbox__container checkbox__container--custom checked">
+                            <input type="number" placeholder="Custom">
+                        </div>
+                        
+                    </div>
+                </section>
+                <article>
+                    <h3>Number of People</h3>
+                    <div class="input__container">
+                        <img id="person" src="images/icon-person.svg" alt="">
+                        <input type="number" placeholder="0">
+                    </div>
+                </article>
+            </div>
+            <div class="result__box">
+                <article>
+                    <h3>Tip Amount <br>
+                        <span> / person</span>
+                    </h3>
+                    <div class="result__box--tip">
+                        <img class="dollar" src="images/icon-dollar.svg" alt="">
+                        <p>0.00</p>
+                    </div>
+                </article>
+                <article>
+                    <h3 id="total">Total <br>
+                        <span> / person</span>
+                    </h3>
+                    <div class="result__box--total">
+                        <img class="dollar" src="images/icon-dollar.svg" alt="">
+                        <p>0.00</p>
+                    </div>
+                </article>
+                <button>Reset</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
