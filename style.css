@@ -6,6 +6,7 @@
     --light-grayish-cyan: hsl(185, 41%, 84%);
     --lighter-grayish-cyan: hsl(189, 41%, 97%);
     --white: hsl(0, 0%, 100%);
+    --red: hsl(0, 100%, 74%);
     --icon-color: hsl(184, 19%, 68%);
     --fw-light: 400;
     --fw-normal: 500;
@@ -67,11 +68,9 @@ h3 {
     
 }
 
-/* @media (hover: hover){
-    .input__container:hover {
-        outline: 2px solid var(--strong-cyan);
-    }
-} */
+.input__container.error, .input__container.error:hover{
+    outline: 2px solid var(--red);
+}
 
 .input__container:hover {
         outline: 2px solid var(--strong-cyan);
@@ -79,6 +78,19 @@ h3 {
 
 .input__container img {
     padding-left: 0.65em;
+}
+
+.article__title, .section__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article__title p, .section__title p {
+    font-size: 0.5em;
+    color: var(--red);
+    font-weight: var(--fw-bold);
+    transform: translateY(0.5em);
+    display: none;
 }
 
 #dollar {
@@ -118,7 +130,7 @@ input::placeholder {
 }
 
 section {
-    margin: 1.5em 0;
+    margin: 1.5em 0 0.8em;
 }
 
 .tip__container {
@@ -127,7 +139,7 @@ section {
     gap: 0.75em;
 }
 
-.checkbox__container {
+.radio__container {
     height: 2.2em;
     border-radius: 5px;
     border: none;
@@ -140,84 +152,142 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
-.checkbox {
+.radio__container.checked {
+    background: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+    outline: 2px solid var(--strong-cyan);
+}
+
+@media (hover:hover){
+    .radio__container.checked:hover{
+        background: var(--strong-cyan);
+        color: var(--very-dark-cyan);
+        outline-color: var(--strong-cyan);
+    }
+}
+
+
+.radio {
     display: none;
 }
 
-.checkbox__container label {
+.radio__container label {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
-.checkbox__container--custom {
+.radio__container--custom {
     background: var(--lighter-grayish-cyan);
     color: var(--darker-grayish-cyan);
     font-size: 0.9em;
     
 }
 
-.checkbox__container--custom.unchecked label{
+.radio__container--custom label {
+    cursor: text;
+}
+
+.radio__container--custom.unchecked label{
     /* display: none; */
     display: flex;
     justify-content: flex-end;
-    padding-right: 0.9em;
+    align-items: center;
     letter-spacing: 0;
-    padding-right: 0.6em;
-    width: 80%;
+    padding-right: 0.9em;
+    width: 100%;
 }
 
-.checkbox__container--custom.checked {
+.radio__container--custom.checked {
+    background: transparent;
     display: none;
+    outline: none;
 }
 
+.radio__container--custom.checked.error {
+    outline: 2px solid var(--red);
+}
+
+.radio__container--custom.checked input {
+    width: calc(100% - 1em);
+    height: calc(100% - 2px);
+    padding-right: 1em;
+    border-radius: 5px;
+}
+
+
+.radio__container--custom.checked input::placeholder {
+    display: flex;
+    align-items: center;
+}
 
 .checked input::placeholder {
     color: var(--darker-grayish-cyan);
 }
 
 @media (hover:none) {
-    .checkbox__container {
+    .radio__container {
         background: var(--very-dark-cyan);
         transition: background-color 0.4s ease-in-out;
     }
 
-    .checkbox__container:hover {
+    .radio__container:hover {
         background: var(--strong-cyan);
         transition: background-color 0.4s ease-in-out;
         outline: 2px solid var(--strong-cyan);
         outline-offset: -1px;
         color: var(--very-dark-cyan);
     }
+
+    .radio__container--custom:hover {
+        outline: none;
+    }
+
+    .input--custom.active {
+        outline: 2px solid var(--strong-cyan);
+    }
+
+    .input--custom.error {
+        outline: 2px solid var(--red);
+    }
 }
 
 @media (hover:hover){
-    .checkbox__container:hover {
+    .radio__container:hover {
         background: var(--light-grayish-cyan);
         color: var(--very-dark-cyan);
         cursor: pointer;
         outline: 3px solid var(--light-grayish-cyan);
         outline-offset: -1px;
     }
-    .checkbox__container:active {
+    .radio__container:active {
         outline: none;
         background: var(--strong-cyan);
     }
+
+    .radio__container--custom:hover {
+        outline: 2px solid var(--strong-cyan);
+    }
+
+    .radio__container.checked.error{
+        outline: none;
+    }
+
+    .input--custom.error {
+        outline: 2px solid var(--red);
+    }
 }
 
-.checkbox__container--custom, .checkbox__container--custom:hover {
+.radio__container--custom, .radio__container--custom:hover {
     background: var(--lighter-grayish-cyan);
     color: var(--darker-grayish-cyan);
 }
 
-.checkbox__container--custom:hover {
-    outline: 2px solid var(--strong-cyan);
-}
 
 .result__box {
     background: var(--very-dark-cyan);
@@ -226,6 +296,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .result__box article, .result__box button {
@@ -235,15 +306,16 @@ section {
 .result__box article {
     margin-top: 1em;
     padding: 0;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
+    display: flex;
+    /* display: grid;
+    grid-template-columns: 1fr 2fr; */
 }
-
 
 .result__box h3 {
     margin-bottom: 0;
     color: var(--white);
     font-size: 0.6em;
+    width: 25%;
 }
 
 #total {
@@ -258,6 +330,8 @@ section {
 .result__box--tip, .result__box--total {
     display: flex;
     justify-content: flex-end;
+    width: 75%;
+    overflow: hidden;
 }
 
 .dollar {
@@ -276,6 +350,7 @@ section {
     color: var(--strong-cyan);
     font-weight: var(--fw-bold);
     margin-bottom: 0;
+    
 }
 
 .result__box--total img {
@@ -294,13 +369,22 @@ section {
     text-transform: uppercase;
     font-weight: var(--fw-bold);
     color: var(--very-dark-cyan);
-    padding: 0.4em 0;
+    padding: 0.3em 0;
     font-family: 'Space Mono', monospace;
-    margin: 1.1em 0 1.2em;
+    margin: 1em 0 1.2em;
     cursor: pointer;
+    outline: 2px solid var(--strong-cyan);
+    outline-offset: -1px;
 }
 
-
-
-
-
+@media (hover:hover) {
+    .result__box button:hover {
+        background: var(--light-grayish-cyan);
+        outline: 2px solid var(--light-grayish-cyan);
+        outline-offset: -1px;
+    }
+}
+.result__box button:active {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}

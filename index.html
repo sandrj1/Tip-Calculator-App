@@ -19,54 +19,52 @@
         <main>
             <div class="calculator__box">
                 <article>
-                    <h3>Bill</h3>
+                    <div class="article__title"><h3>Bill</h3><p>Can't be zero</p></div>
                     <div class="input__container">
                         <img id="dollar" src="images/icon-dollar.svg" alt="">
-                        <input type="number" placeholder="0">
+                        <input class= "input--number input--bill" type="number" placeholder="0">
                     </div>
                 </article>
                 <section>
-                    <h3>
-                        Select Tip %
-                    </h3>
+                    <div class="section__title"><h3>Select Tip %</h3><p>Can't be zero</p></div>
                     <div class="tip__container">
-                        <div class="checkbox__container">
-                            <input class="checkbox" type="checkbox" id="five" name="five" value="5%">
+                        <div class="radio__container">
+                            <input class="radio" type="radio" id="five" name="tip" value="5">
                             <label for="five">5%</label>
                         </div>
-                        <div class="checkbox__container">
-                            <input class="checkbox" type="checkbox" id="ten" name="ten" value="10%">
+                        <div class="radio__container">
+                            <input class="radio" type="radio" id="ten" name="tip" value="10">
                             <label for="ten">10%</label>
                         </div>
-                        <div class="checkbox__container">
-                            <input class="checkbox" type="checkbox" id="fifteen" name="fifteen" value="5%">
+                        <div class="radio__container">
+                            <input class="radio" type="radio" id="fifteen" name="tip" value="15">
                             <label for="fifteen">15%</label>
                         </div>
-                        <div class="checkbox__container">
-                            <input class="checkbox" type="checkbox" id="twentyfive" name="twentyfive" value="25%">
+                        <div class="radio__container">
+                            <input class="radio" type="radio" id="twentyfive" name="tip" value="25">
                             <label for="twentyfive">25%</label>
                         </div>
-                        <div class="checkbox__container">
-                            <input class="checkbox" type="checkbox" id="fifty" name="fifty" value="50%">
+                        <div class="radio__container">
+                            <input class="radio" type="radio" id="fifty" name="tip" value="50">
                             <label for="fifty">50%</label>
                         </div>
-                        <div class="checkbox__container checkbox__container--custom unchecked">
-                            <input class="checkbox" type="checkbox" id="custom" name="custom" value="custom">
+                        <div class="radio__container radio__container--custom unchecked">
+                            <input class="radio" type="radio" id="custom" name="tip" value="custom">
                             <label for="custom">
                                 Custom
                             </label>
                         </div>
-                        <div class="checkbox__container checkbox__container--custom checked">
-                            <input type="number" placeholder="Custom">
+                        <div class="radio__container radio__container--custom checked">
+                            <input class= "input--number input--custom" type="number" placeholder="Custom">
                         </div>
                         
                     </div>
                 </section>
                 <article>
-                    <h3>Number of People</h3>
+                    <div class="article__title"><h3>Number of People</h3><p>Can't be zero</p></div>
                     <div class="input__container">
                         <img id="person" src="images/icon-person.svg" alt="">
-                        <input type="number" placeholder="0">
+                        <input class= "input--number input--people" type="number" placeholder="0">
                     </div>
                 </article>
             </div>
@@ -75,19 +73,13 @@
                     <h3>Tip Amount <br>
                         <span> / person</span>
                     </h3>
-                    <div class="result__box--tip">
-                        <img class="dollar" src="images/icon-dollar.svg" alt="">
-                        <p>0.00</p>
-                    </div>
+                    <div class="result__box--tip"><img class="dollar" src="images/icon-dollar.svg" alt=""><p>0.00</p></div>
                 </article>
                 <article>
                     <h3 id="total">Total <br>
                         <span> / person</span>
                     </h3>
-                    <div class="result__box--total">
-                        <img class="dollar" src="images/icon-dollar.svg" alt="">
-                        <p>0.00</p>
-                    </div>
+                    <div class="result__box--total"><img class="dollar" src="images/icon-dollar.svg" alt=""><p>0.00</p></div>
                 </article>
                 <button>Reset</button>
             </div>
