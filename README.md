@@ -12,7 +12,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://sandrj1.github.io/Tip-Calculator-App/](https://sandrj1.github.io/Tip-Calculator-App/)
 
 ### Built with
 

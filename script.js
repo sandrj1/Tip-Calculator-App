@@ -19,12 +19,16 @@ class Calculator {
     }
 
     get tipAmount() {
-        let totalTip = this.bill / 100 * this.tip;
-        return (totalTip / this.people).toFixed(2);
+        let totalTip = this.bill / 100 * this.tip
+        let singleTip = totalTip / this.people;
+        return singleTip.toFixed(2);
     }
 
     get total() {
-        return (this.bill / this.people).toFixed(2);
+        let singleTip = (this.bill / 100 * this.tip) / this.people;
+        let partialBill = this.bill / this.people;
+        let totalBill = partialBill + singleTip;
+        return totalBill.toFixed(2);
     }
 }
 
@@ -34,11 +38,12 @@ const inputCustom = document.querySelector(".input--custom");
 const inputPeople = document.querySelector(".input--people");
 const tipAmount = document.querySelector(".result__box--tip").lastChild;
 const total = document.querySelector(".result__box--total").lastChild;
-const reset = document.querySelector(".result__box--total").parentNode.nextElementSibling;
+const reset = document.querySelector(".reset__button").firstChild;
 const errorBill = document.querySelector(".article__title");
 const errorCustom = document.querySelector(".section__title");
 const errorPeople = document.getElementsByClassName("article__title")[1];
-let calculator = new Calculator(null, null, null);
+
+let calculator = new Calculator(142.55, 15, 5);
 
 const result = function () {
     if (calculator.bill > 0 && calculator.tip > 0 && calculator.people > 0) {
@@ -49,6 +54,20 @@ const result = function () {
     }
 }
 
+// Default values
+window.onload = function () {
+    radio.forEach(item => {
+        if (item.value == 15) {
+            item.checked = true;
+            item.parentNode.classList.add("checked");
+        }
+    })
+    inputBill.value = calculator.bill;
+    inputPeople.value = calculator.people;
+    result();
+}
+
+// Set bill
 inputBill.addEventListener("keyup", (e) => {
     calculator.getBill(e.target.value);
     console.log("bill", calculator.bill);
@@ -63,6 +82,7 @@ inputBill.addEventListener("keyup", (e) => {
     
 })
 
+// Set tip
 radio.forEach(item => {
     item.addEventListener("click", (e) => {
         if (e.target.checked && e.target.value === "custom") {
@@ -117,6 +137,7 @@ window.addEventListener("click", (e) => {
     }
 })
 
+// Set custom tip on click
 inputCustom.addEventListener("click", (e) => {
     radio.forEach(item => {
         item.parentNode.classList.remove("checked");
@@ -126,6 +147,7 @@ inputCustom.addEventListener("click", (e) => {
     result();
 })
 
+// Set people
 inputPeople.addEventListener("keyup", (e) => {
     calculator.getPeople(e.target.value);
     console.log("people", calculator.people);
