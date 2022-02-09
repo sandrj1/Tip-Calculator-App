@@ -54,12 +54,33 @@ const result = function () {
     }
 }
 
+const removeErrorBill = function () {
+    errorBill.lastChild.style.display = "none";
+    inputBill.parentNode.classList.remove("error");
+}
+
+const removeErrorCustom = function () {
+    errorCustom.lastChild.style.display = "none";
+    inputCustom.classList.remove("error");
+    inputCustom.parentNode.classList.remove("error");
+}
+
+const removeErrorPeople = function () {
+    errorPeople.lastChild.style.display = "none";
+    inputPeople.parentNode.classList.remove("error");
+}
+
+const activeReset = function () {
+    reset.classList.remove("inactive");
+}
+
 // Default values
 window.onload = function () {
     radio.forEach(item => {
         if (item.value == 15) {
             item.checked = true;
             item.parentNode.classList.add("checked");
+            item.parentNode.style.outlineOffset = "-1px";
         }
     })
     inputBill.value = calculator.bill;
@@ -75,9 +96,9 @@ inputBill.addEventListener("keyup", (e) => {
         errorBill.lastChild.style.display = "block";
         inputBill.parentNode.classList.add("error");
     } else {
-        errorBill.lastChild.style.display = "none";
-        inputBill.parentNode.classList.remove("error");
+        removeErrorBill();
         result();
+        activeReset();
     }
     
 })
@@ -107,10 +128,9 @@ radio.forEach(item => {
                     inputCustom.parentNode.classList.add("error");
                 
                 } else {
-                    errorCustom.lastChild.style.display = "none";
-                    inputCustom.classList.remove("error");
-                    inputCustom.parentNode.classList.remove("error");
+                    removeErrorCustom();
                     result();
+                    activeReset();
                 }
             })
         } else if (e.target.checked) {
@@ -122,8 +142,11 @@ radio.forEach(item => {
                 }
             })
             item.parentNode.classList.add("checked");
+            removeErrorCustom();
+            result();
+            activeReset();
         }
-        result();
+        
     })
     
 })
@@ -156,23 +179,29 @@ inputPeople.addEventListener("keyup", (e) => {
         errorPeople.lastChild.style.display = "block";
         inputPeople.parentNode.classList.add("error");
     } else {
-        errorPeople.lastChild.style.display = "none";
-        inputPeople.parentNode.classList.remove("error");
+        removeErrorPeople();
         result();
+        activeReset();
     }
 })
 
 reset.addEventListener("click", () => {
-    calculator.getBill(null);
-    calculator.getTip(null);
-    calculator.getPeople(null);
-    radio.forEach(item => {
-        item.checked = false;
-        item.parentNode.classList.remove("checked");
-    })
-    inputBill.value = "";
-    inputCustom.value = "";
-    inputPeople.value = "";
-    tipAmount.innerHTML = "0.00";
-    total.innerHTML = "0.00";
+        calculator.getBill(null);
+        calculator.getTip(null);
+        calculator.getPeople(null);
+        radio.forEach(item => {
+            item.checked = false;
+            item.parentNode.classList.remove("checked");
+        })
+        inputBill.value = null;
+        inputCustom.value = null;
+        inputPeople.value = null;
+        tipAmount.innerHTML = "0.00";
+        total.innerHTML = "0.00";
+        removeErrorBill();
+        removeErrorCustom();
+    removeErrorPeople();
+    reset.classList.add("inactive");
 })
+
+
