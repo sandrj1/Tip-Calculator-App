@@ -17,6 +17,9 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
+- BEM methodology
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- Vanilla JavaScript
+- JavaScript Classes
