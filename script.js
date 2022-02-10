@@ -37,7 +37,7 @@ const errorBill = document.querySelector(".article__title");
 const errorCustom = document.querySelector(".section__title");
 const errorPeople = document.getElementsByClassName("article__title")[1];
 
-let calculator = new Calculator(142.55, 15, 5);
+let calculator = new Calculator(null, null, null);
 
 const result = function () {
     if (calculator.bill > 0 && calculator.tip > 0 && calculator.people > 0) {
@@ -66,20 +66,6 @@ const removeErrorPeople = function () {
 
 const activeReset = function () {
     reset.classList.remove("inactive");
-}
-
-// Default values
-window.onload = function () {
-    radio.forEach(item => {
-        if (item.value == 15) {
-            item.checked = true;
-            item.parentNode.classList.add("checked");
-            item.parentNode.style.outlineOffset = "-1px";
-        }
-    })
-    inputBill.value = calculator.bill;
-    inputPeople.value = calculator.people;
-    result();
 }
 
 // Set bill
