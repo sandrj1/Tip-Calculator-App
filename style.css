@@ -48,12 +48,12 @@ main {
     margin: auto;
 }
 
-h3 {
+h1, h3 {
     font-size: 0.65em;
     color: var(--darker-grayish-cyan);
 }
 
-.calculator__box article h3 {
+h1, .calculator__box article h3 {
     margin-bottom: 0.5em;
 }
 
@@ -120,6 +120,8 @@ input {
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
     margin: 0; 
 }
 
@@ -465,7 +467,7 @@ section {
         transform: translateX(0.25em);
     }
 
-    .calculator__box article h3 {
+    h1, .calculator__box article h3 {
         margin-top: 1em;
     }
 
