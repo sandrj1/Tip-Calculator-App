@@ -4,20 +4,25 @@ class Calculator {
         this.tip = tip;
         this.people = people;
     }
+
     getBill(bill) {
         this.bill = bill;
     }
+
     getTip (tip) {
         this.tip = tip;
     }
+
     getPeople(people) {
         this.people = people;
     }
+
     get tipAmount() {
         let totalTip = this.bill / 100 * this.tip
         let singleTip = totalTip / this.people;
         return singleTip.toFixed(2);
     }
+
     get total() {
         let singleTip = (this.bill / 100 * this.tip) / this.people;
         let partialBill = this.bill / this.people;

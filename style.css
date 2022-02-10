@@ -415,7 +415,32 @@ section {
     -webkit-tap-highlight-color: transparent;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 480px) {
+    body {
+        margin-bottom: 2em;
+    }
+    .container {
+        width: 85%;
+    }
+    
+    .logo {
+        margin-bottom: 1.75em;
+        padding-top: 1em;
+    }
+
+    main {
+        padding: 1.25em 0.25em 1.25em 0;
+        border-radius: 20px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .container {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 736px) {
     .tip__container {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -433,6 +458,12 @@ section {
     }
 }
 
+@media screen and (min-width: 834px) {
+    .container {
+        width: 65%;
+    }
+}
+
 /* Desktop version */
 
 @media screen and (min-width: 1024px) {
@@ -441,21 +472,15 @@ section {
         justify-content: center;
         min-height: 100vh;
         margin-top: -1.5em;
+        margin-bottom: 0;
     }
     .container {
         width: 90%;
-    }
-    
-    .logo {
-        margin-bottom: 1.75em;
-        padding-top: 1em;
     }
 
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        padding: 1.25em 0.25em 1.25em 0;
-        border-radius: 20px;
     }
 
     .calculator__box, .result__box {
